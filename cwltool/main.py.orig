@@ -200,7 +200,7 @@ def single_job_executor(t,  # type: Process
     output_dirs = set()
     finaloutdir = kwargs.get("outdir")
     kwargs["outdir"] = tempfile.mkdtemp(prefix=kwargs["tmp_outdir_prefix"]) if kwargs.get(
-        "tmp_outdir_prefix") else tempfile.mkdtemp() 
+        "tmp_outdir_prefix") else tempfile.mkdtemp()
     output_dirs.add(kwargs["outdir"])
 
     jobReqs = None
@@ -612,8 +612,7 @@ def main(argsl=None,  # type: List[str]
                      'validate': False}.iteritems():
             if not hasattr(args, k):
                 setattr(args, k, v)
-        #HACK; Setting tmp_outdir_prefix to /datastore/
-        setattr(args, 'tmp_outdir_prefix', '/datastore/') 
+
         if args.quiet:
             _logger.setLevel(logging.WARN)
         if args.debug:
