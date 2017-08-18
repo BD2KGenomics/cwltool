@@ -18,7 +18,7 @@ except ImportError:
 needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
 pytest_runner = ['pytest-runner'] if needs_pytest else []
 
-setup(name='cwltool',
+setup(name='cwltool-UCSC-CGP',
       version='1.0',
       description='Common workflow language reference implementation with patched cwltool',
       long_description=open(README).read(),
