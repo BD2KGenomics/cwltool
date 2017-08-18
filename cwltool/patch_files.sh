@@ -32,7 +32,8 @@ done
 
 if [ ${make_backup} = true ]
 then
-   backup_switches='-b -V numbered'
+#   backup_switches='-b -V numbered'
+   backup_switches='-b'
 else
    backup_switches=''
 fi
