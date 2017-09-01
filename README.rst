@@ -4,51 +4,37 @@ Common workflow language tool description reference implementation
 
 CWL Conformance test: |Build Status|
 
-This is the reference implementation of the Common Workflow Language.  It is
-intended to be feature complete and provide comprehensive validation of CWL
-files as well as provide other tools related to working with CWL.
+THIS PACKAGE CONTAINS A PATCHED RELEASE OF CWLTOOL; IT IS NOT THE
+STANDARD CWLTOOL THAT IS PART OF THE REFERENCE IMPLEMENTATION OF THE 
+COMMON WORKFLOW LANGUAGE
+
+The patched version of cwltool creates a mount point to the host
+docker.sock and a mount point to /datastore in calls to docker run.
+This enables containers to start up containers on the host and provides
+/datastore as a known accessible location to store data.
+
 
 This is written and tested for Python 2.7.
 
-The reference implementation consists of two packages.  The "cwltool" package
+The "cwltool" package
 is the primary Python module containing the reference implementation in the
 "cwltool" module and console executable by the same name.
 
-The "cwlref-runner" package is optional and provides an additional entry point
-under the alias "cwl-runner", which is the implementation-agnostic name for the
-default CWL interpreter installed on a host.
-
 Install
 -------
-
-Installing the official package from PyPi (will install "cwltool" package as
-well)::
-
-  pip install cwlref-runner
-
-If installling alongside another CWL implementation then::
 
   pip install cwltool
 
 To install from source::
 
-  git clone https://github.com/common-workflow-language/cwltool.git
+  git clone https://github.com/BD2KGenomics/cwltool-docker-host-docker
   cd cwltool && python setup.py install
-  cd cwlref-runner && python setup.py install  # co-installing? skip this
 
-Remember, if co-installing multiple CWL implementations then you need to
-maintain which implementation ``cwl-runner`` points to via a symbolic file
-system link or [another facility](https://wiki.debian.org/DebianAlternatives).
 
 Run on the command line
 -----------------------
 
 Simple command::
-
-  cwl-runner [tool-or-workflow-description] [input-job-settings]
-
-Or if you have multiple CWL implementations installed and you want to override
-the default cwl-runner use::
 
   cwltool [tool-or-workflow-description] [input-job-settings]
 
